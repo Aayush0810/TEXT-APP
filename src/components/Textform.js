@@ -9,6 +9,11 @@ export default function Textform(props) {
     let newText = text.toLocaleUpperCase();
     setText(newText);
   };
+  const removespaces = () => {
+    // console.log("uppercase button was hit" + text)
+    let newText = text.trim();
+    setText(newText);
+  };
   const handleLoClick = () => {
     // console.log("uppercase button was hit" + text)
     let newText = text.toLowerCase();
@@ -78,6 +83,9 @@ export default function Textform(props) {
         </button>
         <button className="copyBtn btn btn-secondary mx-1" onClick={copy}>
           Copy to clipboard
+        </button>
+        <button className="copyBtn btn btn-secondary mx-1" onClick={removespaces}>
+          Remove Extra Spaces
         </button>
         <button className="btn btn-secondary mx-1" onClick={clearText}>
           Clear

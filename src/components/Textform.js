@@ -8,13 +8,11 @@ export default function Textform(props) {
     // console.log("uppercase button was hit" + text)
     let newText = text.toLocaleUpperCase();
     setText(newText);
-    props.showAlert("Text has been converted to Uppercase", "success")
   };
   const handleLoClick = () => {
     // console.log("uppercase button was hit" + text)
     let newText = text.toLowerCase();
     setText(newText);
-    props.showAlert("Text has been converted to Lowercase", "success")
 
   };
   const copy = () => {
@@ -27,21 +25,18 @@ export default function Textform(props) {
    text.select()
    text.setSelectionRange(0,9999)
    navigator.clipboard.writeText(text.value) 
-   props.showAlert("Text has been copied to clipboard", "success")
 
   };
   const speak = () => {
     let msg = new SpeechSynthesisUtterance();
     msg.text = text;
     window.speechSynthesis.speak(msg);
-    props.showAlert("Text is being spoken", "success")
 
   };
   const clearText = () => {
     let newText = text;
     newText = "";
     setText(newText);
-   props.showAlert("Text has been erased", "success")
 
   };
   const handleOnChange = (event) => {

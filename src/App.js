@@ -5,12 +5,7 @@ import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import About from './components/About';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 function App() {
@@ -54,12 +49,16 @@ function App() {
   }
   return (
 <>
-   <Navbar title="Note app" aboutText="Pinned Notes" mode={mode} ToggleMode={ToggleMode}/>
+<BrowserRouter>
+   <Navbar title="Note app" aboutText="About" mode={mode} ToggleMode={ToggleMode}/>
    <Alert alert={alert}/>
    <div className="container">
-            <About />
-   <Textform showAlert={showAlert} heading= "Enter the text you want to analyse" mode={mode} />
+   <Routes>
+   <Route  path='/textform' element={<Textform/>} showAlert={showAlert} heading= "Enter the text you want to analyse" mode={mode} />
+   <Route  path='/about' element={<About/>}/>
+   </Routes>
    </div>
+   </BrowserRouter>
 </>
   );
 }
